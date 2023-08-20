@@ -1,0 +1,10 @@
+^C:\USERS\PAULB\DOCUMENTS\PROJECTS\AFANCI\SOFTWARE\PC\OUT\CMAKEFILES\7D15EF361A3254EE136E9626B2997164\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/paulb/Documents/projects/afanci/software/PC -BC:/Users/paulb/Documents/projects/afanci/software/PC/out --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/paulb/Documents/projects/afanci/software/PC/out/afanci.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

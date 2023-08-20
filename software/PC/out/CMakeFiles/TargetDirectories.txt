@@ -1,0 +1,10 @@
+C:/Users/paulb/Documents/projects/afanci/software/PC/out/CMakeFiles/afanci.dir
+C:/Users/paulb/Documents/projects/afanci/software/PC/out/CMakeFiles/Experimental.dir
+C:/Users/paulb/Documents/projects/afanci/software/PC/out/CMakeFiles/Nightly.dir
+C:/Users/paulb/Documents/projects/afanci/software/PC/out/CMakeFiles/Continuous.dir
+C:/Users/paulb/Documents/projects/afanci/software/PC/out/CMakeFiles/NightlyMemoryCheck.dir
+C:/Users/paulb/Documents/projects/afanci/software/PC/out/CMakeFiles/PACKAGE.dir
+C:/Users/paulb/Documents/projects/afanci/software/PC/out/CMakeFiles/RUN_TESTS.dir
+C:/Users/paulb/Documents/projects/afanci/software/PC/out/CMakeFiles/INSTALL.dir
+C:/Users/paulb/Documents/projects/afanci/software/PC/out/CMakeFiles/ALL_BUILD.dir
+C:/Users/paulb/Documents/projects/afanci/software/PC/out/CMakeFiles/ZERO_CHECK.dir
