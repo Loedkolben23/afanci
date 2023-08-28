@@ -1,5 +1,18 @@
 (kicad_sch (version 20230121) (generator eeschema)
+
+  (uuid 60d66d5a-e0e3-4631-84c8-aa9e13baae05)
+
   (paper "A4")
-  (lib_symbols)
-  (symbol_instances)
+
+  (title_block
+    (title "afanci")
+  )
+
+  (lib_symbols
+  )
+
+
+  (sheet_instances
+    (path "/" (page "1"))
+  )
 )
