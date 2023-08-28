@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="E">
+  <design>
+    <source>C:\Users\paulb\Documents\projects\afanci\circuit\scem\scem.kicad_sch</source>
+    <date>8/28/2023 3:44:35 PM</date>
+    <tool>Eeschema 7.0.6</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title>afanci</title>
+        <company/>
+        <rev/>
+        <date/>
+        <source>scem.kicad_sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="U1">
+      <value>DHT11</value>
+      <footprint>Sensor:Aosong_DHT11_5.5x12.0_P2.54mm</footprint>
+      <datasheet>http://akizukidenshi.com/download/ds/aosong/DHT11.pdf</datasheet>
+      <libsource lib="Sensor" part="DHT11" description="Temperature and humidity module"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="scem.kicad_sch"/>
+      <property name="ki_description" value="Temperature and humidity module"/>
+      <property name="ki_keywords" value="Digital temperature humidity sensor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>c1145e46-3e06-46c3-b9e4-1091fc2eaf3f</tstamps>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="Sensor" part="DHT11">
+      <description>Temperature and humidity module</description>
+      <docs>http://akizukidenshi.com/download/ds/aosong/DHT11.pdf</docs>
+      <footprints>
+        <fp>Aosong*DHT11*5.5x12.0*P2.54mm*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">DHT11</field>
+        <field name="Footprint">Sensor:Aosong_DHT11_5.5x12.0_P2.54mm</field>
+        <field name="Datasheet">http://akizukidenshi.com/download/ds/aosong/DHT11.pdf</field>
+      </fields>
+      <pins>
+        <pin num="1" name="VCC" type="power_in"/>
+        <pin num="2" name="IO" type="bidirectional"/>
+        <pin num="3" name="NC" type="no_connect"/>
+        <pin num="4" name="GND" type="power_in"/>
+      </pins>
+    </libpart>
+  </libparts>
+  <libraries>
+    <library logical="Sensor">
+      <uri>C:\Program Files\KiCad\7.0\share\kicad\symbols\/Sensor.kicad_sym</uri>
+    </library>
+  </libraries>
+  <nets>
+    <net code="1" name="unconnected-(U1-GND-Pad4)">
+      <node ref="U1" pin="4" pinfunction="GND" pintype="power_in"/>
+    </net>
+    <net code="2" name="unconnected-(U1-IO-Pad2)">
+      <node ref="U1" pin="2" pinfunction="IO" pintype="bidirectional"/>
+    </net>
+    <net code="3" name="unconnected-(U1-NC-Pad3)">
+      <node ref="U1" pin="3" pinfunction="NC" pintype="no_connect"/>
+    </net>
+    <net code="4" name="unconnected-(U1-VCC-Pad1)">
+      <node ref="U1" pin="1" pinfunction="VCC" pintype="power_in"/>
+    </net>
+  </nets>
+</export>
