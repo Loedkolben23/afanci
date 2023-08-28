@@ -15,24 +15,15 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
     HWND hwnd = CreateWindowExA(
         0,
         CLASS_NAME,
-        "My Win32 App",
+        "afanci",
         WS_OVERLAPPEDWINDOW,
-        CW_USEDEFAULT, CW_USEDEFAULT, 800, 600,
+        CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT,
         NULL, NULL, hInstance, NULL
     );
 
     if (hwnd == NULL) {
         return 0;
     }
-
-    // Create a button
-    HWND button = CreateWindow(
-        "BUTTON",           // Predefined class; Unicode assumed
-        "test",         // Button text
-        WS_TABSTOP | WS_VISIBLE | WS_CHILD | BS_DEFPUSHBUTTON,  // Styles
-        10, 10, 100, 30,    // Position and size
-        hwnd, NULL, hInstance, NULL
-    );
 
     ShowWindow(hwnd, nCmdShow);
 
@@ -47,6 +38,10 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
     switch (uMsg) {
+    case WM_SIZE:
+        // Handle resizing if needed
+        return 0;
+
     case WM_DESTROY:
         PostQuitMessage(0);
         return 0;

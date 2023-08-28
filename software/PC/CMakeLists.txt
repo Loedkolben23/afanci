@@ -16,14 +16,14 @@ set_target_properties("afanci" PROPERTIES
 )
 
 # spezififies version of c++; force you to use it
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED True)
+#set(CMAKE_CXX_STANDARD 17)
+#set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 
 #Testting
-include (CTest)
-add_test("test1_1" "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}") #points to the current build tree
+#include (CTest)
+#add_test("test1_1" "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}") #points to the current build tree
 
 #CPack
-include(CPack)
+#include(CPack)
 
