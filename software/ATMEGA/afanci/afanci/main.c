@@ -15,3 +15,4 @@ DDRB = 000000001;
 	}
 
 //8 -> PB0
+// 3 Register für Ports
