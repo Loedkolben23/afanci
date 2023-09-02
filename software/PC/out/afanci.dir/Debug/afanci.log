@@ -1,2 +1,6 @@
-﻿  LINK : C:\Users\paulb\Documents\projects\afanci\software\PC\out\bin\Debug\afanci.exe not found or not built by the last incremental link; performing full link
-  afanci.vcxproj -> C:\Users\paulb\Documents\projects\afanci\software\PC\out\bin\Debug\afanci.exe
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets(2128,5): warning : The referenced project 'C:\Users\paulb\Documents\projects\afanci\software\PC\out\ZERO_CHECK.vcxproj' does not exist.
+  Building Custom Rule C:/Users/paulb/Documents/projects/afanci/software/PC/CMakeLists.txt
+  CMake is re-running because C:/Users/paulb/Documents/projects/afanci/software/PC/out/CMakeFiles/generate.stamp dependency file is missing.
+CUSTOMBUILD : CMake error : The source directory "C:/Users/paulb/Documents/projects/afanci/software/PC" does not appear to contain CMakeLists.txt.
+  Specify --help for usage, or press the help button on the CMake GUI.
+C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(249,5): error MSB8066: Custom build for 'C:\Users\paulb\Documents\projects\afanci\software\PC\CMakeLists.txt' exited with code 1.
