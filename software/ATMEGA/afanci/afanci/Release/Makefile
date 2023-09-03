@@ -56,7 +56,7 @@ SUBDIRS :=  \
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
-../test.c \
+../main.c \
 ../src/ASF/mega/boards/atmega328p_xplained_mini/init.c
 
 
@@ -67,19 +67,19 @@ ASM_SRCS +=
 
 
 OBJS +=  \
-test.o \
+main.o \
 src/ASF/mega/boards/atmega328p_xplained_mini/init.o
 
 OBJS_AS_ARGS +=  \
-test.o \
+main.o \
 src/ASF/mega/boards/atmega328p_xplained_mini/init.o
 
 C_DEPS +=  \
-test.d \
+main.d \
 src/ASF/mega/boards/atmega328p_xplained_mini/init.d
 
 C_DEPS_AS_ARGS +=  \
-test.d \
+main.d \
 src/ASF/mega/boards/atmega328p_xplained_mini/init.d
 
 OUTPUT_FILE_PATH +=afanci.elf
@@ -96,17 +96,17 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
-./test.o: .././test.c
+./main.o: .././main.c
 	@echo Building file: $<
 	@echo Invoking: XC8 C Compiler : 2.36
-	$(QUOTE)C:\Program Files\Microchip\xc8\v2.36\bin\xc8-cc.exe$(QUOTE)  -mcpu=ATmega328P  -mdfp="C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\xc8"  -c -x c -funsigned-char -funsigned-bitfields -mext=cci -D__ATmega328P__ -DDEBUG -D__ATmega328P__ -DBOARD=ATMEGA328P_XPLAINED_MINI  -I"../src/ASF/common/boards" -I"../src/ASF/mega/utils/preprocessor" -I"../src/ASF/mega/utils" -I"../src/ASF/common/utils" -I"../src/ASF/mega/boards" -I"../src/ASF/mega/boards/atmega328p_xplained_mini" -I"../src/ASF/common/services/gpio" -I"../src/ASF/common/services/ioport" -I"../src" -I"../src/config"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files\Microchip\xc8\v2.36\bin\xc8-cc.exe$(QUOTE)  -mcpu=ATmega328P  -mdfp="C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\xc8"  -c -x c -funsigned-char -funsigned-bitfields -mext=cci -D__ATmega328P__ -DNDEBUG -D__ATmega328P__ -DBOARD=ATMEGA328P_XPLAINED_MINI  -I"../src/ASF/common/boards" -I"../src/ASF/mega/utils/preprocessor" -I"../src/ASF/mega/utils" -I"../src/ASF/common/utils" -I"../src/ASF/mega/boards" -I"../src/ASF/mega/boards/atmega328p_xplained_mini" -I"../src/ASF/common/services/gpio" -I"../src/ASF/common/services/ioport" -I"../src" -I"../src/config"  -Os -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -Wall -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
 src/ASF/mega/boards/atmega328p_xplained_mini/init.o: ../src/ASF/mega/boards/atmega328p_xplained_mini/init.c
 	@echo Building file: $<
 	@echo Invoking: XC8 C Compiler : 2.36
-	$(QUOTE)C:\Program Files\Microchip\xc8\v2.36\bin\xc8-cc.exe$(QUOTE)  -mcpu=ATmega328P  -mdfp="C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\xc8"  -c -x c -funsigned-char -funsigned-bitfields -mext=cci -D__ATmega328P__ -DDEBUG -D__ATmega328P__ -DBOARD=ATMEGA328P_XPLAINED_MINI  -I"../src/ASF/common/boards" -I"../src/ASF/mega/utils/preprocessor" -I"../src/ASF/mega/utils" -I"../src/ASF/common/utils" -I"../src/ASF/mega/boards" -I"../src/ASF/mega/boards/atmega328p_xplained_mini" -I"../src/ASF/common/services/gpio" -I"../src/ASF/common/services/ioport" -I"../src" -I"../src/config"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files\Microchip\xc8\v2.36\bin\xc8-cc.exe$(QUOTE)  -mcpu=ATmega328P  -mdfp="C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\xc8"  -c -x c -funsigned-char -funsigned-bitfields -mext=cci -D__ATmega328P__ -DNDEBUG -D__ATmega328P__ -DBOARD=ATMEGA328P_XPLAINED_MINI  -I"../src/ASF/common/boards" -I"../src/ASF/mega/utils/preprocessor" -I"../src/ASF/mega/utils" -I"../src/ASF/common/utils" -I"../src/ASF/mega/boards" -I"../src/ASF/mega/boards/atmega328p_xplained_mini" -I"../src/ASF/common/services/gpio" -I"../src/ASF/common/services/ioport" -I"../src" -I"../src/config"  -Os -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -Wall -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
@@ -136,7 +136,7 @@ all: $(OUTPUT_FILE_PATH) $(ADDITIONAL_DEPENDENCIES)
 $(OUTPUT_FILE_PATH): $(OBJS) $(USER_OBJS) $(OUTPUT_FILE_DEP) $(LIB_DEP) $(LINKER_SCRIPT_DEP)
 	@echo Building target: $@
 	@echo Invoking:  XC8 C Linker : 2.36
-	$(QUOTE)C:\Program Files\Microchip\xc8\v2.36\bin\xc8-cc.exe$(QUOTE) -o$(OUTPUT_FILE_PATH_AS_ARGS) $(OBJS_AS_ARGS) $(USER_OBJS) $(LIBS) -mcpu=ATmega328P  -mdfp="C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\xc8"  -Wl,-Map="afanci.map" -funsigned-char -funsigned-bitfields -Wl,--start-group -Wl,-lm  -Wl,--end-group -Wl,--gc-sections -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums --memorysummary,memoryfile.xml  
+	$(QUOTE)C:\Program Files\Microchip\xc8\v2.36\bin\xc8-cc.exe$(QUOTE) -o$(OUTPUT_FILE_PATH_AS_ARGS) $(OBJS_AS_ARGS) $(USER_OBJS) $(LIBS) -mcpu=ATmega328P  -mdfp="C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\xc8"  -Wl,-Map="afanci.map" -funsigned-char -funsigned-bitfields -Wl,--start-group -Wl,-lm  -Wl,--end-group -Wl,--gc-sections -Os -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax --memorysummary,memoryfile.xml  
 	@echo Finished building target: $@
 	"C:\Program Files\Microchip\xc8\v2.36\bin\avr-objcopy.exe" -O ihex -R .eeprom -R .fuse -R .lock -R .signature -R .user_signatures  "afanci.elf" "afanci.hex"
 	"C:\Program Files\Microchip\xc8\v2.36\bin\avr-objcopy.exe" -j .eeprom --set-section-flags=.eeprom=alloc,load --change-section-lma .eeprom=0 --no-change-warnings -O ihex "afanci.elf" "afanci.eep" || exit 0

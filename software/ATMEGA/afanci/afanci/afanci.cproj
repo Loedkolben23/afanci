@@ -98,7 +98,7 @@
       </ToolNumber>
       <ToolName xmlns="">Custom Programming Tool</ToolName>
     </custom>
-    <CustomProgrammingToolCommand>Arduino Nano</CustomProgrammingToolCommand>
+    <CustomProgrammingToolCommand>Arduino UNO</CustomProgrammingToolCommand>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <ToolchainSettings>
@@ -210,7 +210,7 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="main.c">
+    <Compile Include="test.c">
       <SubType>compile</SubType>
     </Compile>
     <None Include="src\ASF\common\services\ioport\mega\ioport.h">
