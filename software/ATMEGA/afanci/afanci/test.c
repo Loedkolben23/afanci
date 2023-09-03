@@ -4,39 +4,15 @@
  * Created: 8/30/2023 8:13:33 AM
  *  Author: paulb
  */ 
-
-#define F_CPU  160000000
-
 #include <avr/io.h>
 #include <avr/interrupt.h>
-#include <util/delay.h>
-/*
-double pwm_signal_percent = 0; 
 
-int main(void){
-	//TCCR0A – Timer/Counter Control Register A; sets timer as "PWM Timer"
-	TCCR0A = (1 << WGM00) | (1 << COM0A1);
-	//Timer/Counter Control Register B, pwm function from above needs this timer??
-	TCCR0B = (1 << CS02);  //clk256
-	//configured the output
-	DDRD = 0x40;
-	//Timer/Counter Interrupt Mask Register
-	//TIMSK0 = 
-	sei();
-	
-	OCR0A = (pwm_signal_percent/100)*255;
-	
-	while(1)
-	{
-		
-		pwm_signal_percent = 100;
-		_delay_ms(50);
-		pwm_signal_percent = 10;
-		_delay_ms(50);
-		pwm_signal_percent = 00;
-		_delay_ms(50);
-	}
-}*/
+#define F_CPU	160000000
+#define BUAD	9600
+#define BRC		((F_CPU/16/BUAD) -1)
+
+
+#include <util/delay.h>
 
 void initPWM() {
 	// Configure Timer0 for Fast PWM on OC0A (Pin 6) and OC0B (Pin 5)
@@ -60,6 +36,12 @@ void initPWM() {
 
 int main() {
 	initPWM();
+	UBRR0H = (BRC >> 8);
+	UBRR0L = BRC;
+		
+	UCSR0B = (1 << TXEN0);
+	UCSR0C = (1 << UCSZ01) | (1 << UCSZ00);
+
 
 	while (1) {
 		// Adjust PWM duty cycles as needed
@@ -69,11 +51,10 @@ int main() {
 		OCR1B = 255;  // Duty cycle for OC1B (Pin 10)
 		OCR2A = 0;  // Duty cycle for OC2A (Pin 11)
 		OCR2B = 255; // Duty cycle for OC2B (Pin 3)
-
+		//writes into data register
+		UDR0  = '8';
 		_delay_ms(1000); // Delay for demonstration
 	}
-
-	return 0;
 }
 
  
