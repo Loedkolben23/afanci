@@ -1,0 +1,160 @@
+
+--boundary_.oOo._6IPK6YUwaS9LK+7/oRYR31VZ79DVE5ja
+Content-Length: 617
+Content-Type: application/octet-stream
+X-File-MD5: 56ed7f980d8166438b3cc1920739de4f
+X-File-Mtime: 1693229257
+X-File-Path: /afanci/software/PC/out/afanci.vcxproj.filters
+
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\paulb\Documents\projects\afanci\software\PC\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\paulb\Documents\projects\afanci\software\PC\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{F3A53600-A3AE-3371-9664-EA6BF3C7F5ED}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
+
+--boundary_.oOo._6IPK6YUwaS9LK+7/oRYR31VZ79DVE5ja
+Content-Length: 95
+Content-Type: application/octet-stream
+X-File-MD5: 5ae11ab651b05bd572d0bb90c5a8ed73
+X-File-Mtime: 1693229257
+X-File-Path: /afanci/software/PC/out/x64/Debug/ALL_BUILD/ALL_BUILD.log
+
+﻿  Building Custom Rule C:/Users/paulb/Documents/projects/afanci/software/PC/CMakeLists.txt
+
+--boundary_.oOo._6IPK6YUwaS9LK+7/oRYR31VZ79DVE5ja
+Content-Length: 311
+Content-Type: application/octet-stream
+X-File-MD5: e2cda491c33d3fd16c672db0158b129e
+X-File-Mtime: 1693229257
+X-File-Path: /afanci/software/PC/out/x64/Debug/INSTALL/INSTALL.tlog/CustomBuild.command.1.tlog
+
+^C:\USERS\PAULB\DOCUMENTS\PROJECTS\AFANCI\SOFTWARE\PC\OUT\CMAKEFILES\7D15EF361A3254EE136E9626B2997164\INSTALL_FORCE.RULE
+setlocal
+cd .
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+
+--boundary_.oOo._6IPK6YUwaS9LK+7/oRYR31VZ79DVE5ja
+Content-Length: 122
+Content-Type: application/octet-stream
+X-File-MD5: b7be6995d4ebe325fcf7bb7c70246245
+X-File-Mtime: 1693229257
+X-File-Path: /afanci/software/PC/out/x64/Debug/INSTALL/INSTALL.tlog/CustomBuild.read.1.tlog
+
+^C:\USERS\PAULB\DOCUMENTS\PROJECTS\AFANCI\SOFTWARE\PC\OUT\CMAKEFILES\7D15EF361A3254EE136E9626B2997164\INSTALL_FORCE.RULE
+
+--boundary_.oOo._6IPK6YUwaS9LK+7/oRYR31VZ79DVE5ja
+Content-Length: 205
+Content-Type: application/octet-stream
+X-File-MD5: 5ebc5801f03902d438308dd82fdff8cf
+X-File-Mtime: 1693229257
+X-File-Path: /afanci/software/PC/out/x64/Debug/INSTALL/INSTALL.tlog/CustomBuild.write.1.tlog
+
+^C:\USERS\PAULB\DOCUMENTS\PROJECTS\AFANCI\SOFTWARE\PC\OUT\CMAKEFILES\7D15EF361A3254EE136E9626B2997164\INSTALL_FORCE.RULE
+C:\USERS\PAULB\DOCUMENTS\PROJECTS\AFANCI\SOFTWARE\PC\OUT\CMAKEFILES\INSTALL_FORCE
+
+--boundary_.oOo._6IPK6YUwaS9LK+7/oRYR31VZ79DVE5ja
+Content-Length: 27919
+Content-Type: application/octet-stream
+X-File-MD5: 59559e68bd3426b6a2055ca481fa9dba
+X-File-Mtime: 1693229257
+X-File-Path: /afanci/software/PC/out/afanci.vcxproj
+
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{CFE69EEF-8147-37D0-A27D-E6DE5EC2B1D1}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>afanci</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\paulb\Documents\projects\afanci\software\PC\out\bin\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">afanci.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">afanci</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\paulb\Documents\projects\afanci\software\PC\out\bin\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">afanci.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">afanci</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\paulb\Documents\projects\afanci\software\PC\out\bin\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">afanci.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">afanci</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\paulb\Documents\projects\afanci\software\PC\out\bin\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">afanci.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Rel

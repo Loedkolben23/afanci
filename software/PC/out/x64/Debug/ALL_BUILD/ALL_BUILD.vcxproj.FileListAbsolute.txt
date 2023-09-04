@@ -1,0 +1,259 @@
+
+--boundary_.oOo._xkZMiEyGo/xWxkqokpkf0WoNSJCth76/
+Content-Length: 154
+Content-Type: application/octet-stream
+X-File-MD5: 8f00f8d1ef0c4bf7276769582247f442
+X-File-Mtime: 1693229257
+X-File-Path: /afanci/software/PC/out/x64/Debug/ALL_BUILD/ALL_BUILD.tlog/CustomBuild.write.1.tlog
+
+^C:\USERS\PAULB\DOCUMENTS\PROJECTS\AFANCI\SOFTWARE\PC\CMAKELISTS.TXT
+C:\USERS\PAULB\DOCUMENTS\PROJECTS\AFANCI\SOFTWARE\PC\OUT\CMAKEFILES\GENERATE.STAMP
+
+--boundary_.oOo._xkZMiEyGo/xWxkqokpkf0WoNSJCth76/
+Content-Length: 29161
+Content-Type: application/octet-stream
+X-File-MD5: 9c26fabdf8362129150b5a010137cf39
+X-File-Mtime: 1693229257
+X-File-Path: /afanci/software/PC/out/_CPack_Packages/win64/NSIS/project.nsi
+
+﻿; CPack install script designed for a nmake build
+
+;--------------------------------
+; You must define these values
+
+  !define VERSION "1.0.0"
+  !define PATCH  "0"
+  !define INST_DIR "C:/Users/paulb/Documents/projects/afanci/software/PC/out/_CPack_Packages/win64/NSIS/afanci-1.0.0-win64"
+
+;--------------------------------
+;Variables
+
+  Var MUI_TEMP
+  Var STARTMENU_FOLDER
+  Var SV_ALLUSERS
+  Var START_MENU
+  Var DO_NOT_ADD_TO_PATH
+  Var ADD_TO_PATH_ALL_USERS
+  Var ADD_TO_PATH_CURRENT_USER
+  Var INSTALL_DESKTOP
+  Var IS_DEFAULT_INSTALLDIR
+;--------------------------------
+;Include Modern UI
+
+  !include "MUI.nsh"
+
+  ;Default installation folder
+  InstallDir "$PROGRAMFILES64\afanci 1.0.0"
+
+;--------------------------------
+;General
+
+  ;Name and file
+  Name "afanci 1.0.0"
+  OutFile "C:/Users/paulb/Documents/projects/afanci/software/PC/out/_CPack_Packages/win64/NSIS/afanci-1.0.0-win64.exe"
+
+  ;Set compression
+  SetCompressor lzma
+
+  ;Require administrator access
+  RequestExecutionLevel admin
+
+
+
+
+
+  !include Sections.nsh
+
+;--- Component support macros: ---
+; The code for the add/remove functionality is from:
+;   https://nsis.sourceforge.io/Add/Remove_Functionality
+; It has been modified slightly and extended to provide
+; inter-component dependencies.
+Var AR_SecFlags
+Var AR_RegFlags
+
+
+; Loads the "selected" flag for the section named SecName into the
+; variable VarName.
+!macro LoadSectionSelectedIntoVar SecName VarName
+ SectionGetFlags ${${SecName}} $${VarName}
+ IntOp $${VarName} $${VarName} & ${SF_SELECTED}  ;Turn off all other bits
+!macroend
+
+; Loads the value of a variable... can we get around this?
+!macro LoadVar VarName
+  IntOp $R0 0 + $${VarName}
+!macroend
+
+; Sets the value of a variable
+!macro StoreVar VarName IntValue
+  IntOp $${VarName} 0 + ${IntValue}
+!macroend
+
+!macro InitSection SecName
+  ;  This macro reads component installed flag from the registry and
+  ;changes checked state of the section on the components page.
+  ;Input: section index constant name specified in Section command.
+
+  ClearErrors
+  ;Reading component status from registry
+  ReadRegDWORD $AR_RegFlags HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\afanci 1.0.0\Components\${SecName}" "Installed"
+  IfErrors "default_${SecName}"
+    ;Status will stay default if registry value not found
+    ;(component was never installed)
+  IntOp $AR_RegFlags $AR_RegFlags & ${SF_SELECTED} ;Turn off all other bits
+  SectionGetFlags ${${SecName}} $AR_SecFlags  ;Reading default section flags
+  IntOp $AR_SecFlags $AR_SecFlags & 0xFFFE  ;Turn lowest (enabled) bit off
+  IntOp $AR_SecFlags $AR_RegFlags | $AR_SecFlags      ;Change lowest bit
+
+  ; Note whether this component was installed before
+  !insertmacro StoreVar ${SecName}_was_installed $AR_RegFlags
+  IntOp $R0 $AR_RegFlags & $AR_RegFlags
+
+  ;Writing modified flags
+  SectionSetFlags ${${SecName}} $AR_SecFlags
+
+ "default_${SecName}:"
+ !insertmacro LoadSectionSelectedIntoVar ${SecName} ${SecName}_selected
+!macroend
+
+!macro FinishSection SecName
+  ;  This macro reads section flag set by user and removes the section
+  ;if it is not selected.
+  ;Then it writes component installed flag to registry
+  ;Input: section index constant name specified in Section command.
+
+  SectionGetFlags ${${SecName}} $AR_SecFlags  ;Reading section flags
+  ;Checking lowest bit:
+  IntOp $AR_SecFlags $AR_SecFlags & ${SF_SELECTED}
+  IntCmp $AR_SecFlags 1 "leave_${SecName}"
+    ;Section is not selected:
+    ;Calling Section uninstall macro and writing zero installed flag
+    !insertmacro "Remove_${${SecName}}"
+    WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\afanci 1.0.0\Components\${SecName}" \
+  "Installed" 0
+    Goto "exit_${SecName}"
+
+ "leave_${SecName}:"
+    ;Section is selected:
+    WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\afanci 1.0.0\Components\${SecName}" \
+  "Installed" 1
+
+ "exit_${SecName}:"
+!macroend
+
+!macro RemoveSection_CPack SecName
+  ;  This macro is used to call section's Remove_... macro
+  ;from the uninstaller.
+  ;Input: section index constant name specified in Section command.
+
+  !insertmacro "Remove_${${SecName}}"
+!macroend
+
+; Determine whether the selection of SecName changed
+!macro MaybeSelectionChanged SecName
+  !insertmacro LoadVar ${SecName}_selected
+  SectionGetFlags ${${SecName}} $R1
+  IntOp $R1 $R1 & ${SF_SELECTED} ;Turn off all other bits
+
+  ; See if the status has changed:
+  IntCmp $R0 $R1 "${SecName}_unchanged"
+  !insertmacro LoadSectionSelectedIntoVar ${SecName} ${SecName}_selected
+
+  IntCmp $R1 ${SF_SELECTED} "${SecName}_was_selected"
+  !insertmacro "Deselect_required_by_${SecName}"
+  goto "${SecName}_unchanged"
+
+  "${SecName}_was_selected:"
+  !insertmacro "Select_${SecName}_depends"
+
+  "${SecName}_unchanged:"
+!macroend
+;--- End of Add/Remove macros ---
+
+;--------------------------------
+;Interface Settings
+
+  !define MUI_HEADERIMAGE
+  !define MUI_ABORTWARNING
+
+;----------------------------------------
+; based upon a script of "Written by KiCHiK 2003-01-18 05:57:02"
+;----------------------------------------
+!verbose 3
+!include "WinMessages.NSH"
+!verbose 4
+;====================================================
+; get_NT_environment
+;     Returns: the selected environment
+;     Output : head of the stack
+;====================================================
+!macro select_NT_profile UN
+Function ${UN}select_NT_profile
+   StrCmp $ADD_TO_PATH_ALL_USERS "1" 0 environment_single
+      DetailPrint "Selected environment for all users"
+      Push "all"
+      Return
+   environment_single:
+      DetailPrint "Selected environment for current user only."
+      Push "current"
+      Return
+FunctionEnd
+!macroend
+!insertmacro select_NT_profile ""
+!insertmacro select_NT_profile "un."
+;----------------------------------------------------
+!define NT_current_env 'HKCU "Environment"'
+!define NT_all_env     'HKLM "SYSTEM\CurrentControlSet\Control\Session Manager\Environment"'
+
+!ifndef WriteEnvStr_RegKey
+  !ifdef ALL_USERS
+    !define WriteEnvStr_RegKey \
+       'HKLM "SYSTEM\CurrentControlSet\Control\Session Manager\Environment"'
+  !else
+    !define WriteEnvStr_RegKey 'HKCU "Environment"'
+  !endif
+!endif
+
+; AddToPath - Adds the given dir to the search path.
+;        Input - head of the stack
+;        Note - Win9x systems requires reboot
+
+Function AddToPath
+  Exch $0
+  Push $1
+  Push $2
+  Push $3
+
+  # don't add if the path doesn't exist
+  IfFileExists "$0\*.*" "" AddToPath_done
+
+  ReadEnvStr $1 PATH
+  ; if the path is too long for a NSIS variable NSIS will return a 0
+  ; length string.  If we find that, then warn and skip any path
+  ; modification as it will trash the existing path.
+  StrLen $2 $1
+  IntCmp $2 0 CheckPathLength_ShowPathWarning CheckPathLength_Done CheckPathLength_Done
+    CheckPathLength_ShowPathWarning:
+    Messagebox MB_OK|MB_ICONEXCLAMATION "Warning! PATH too long installer unable to modify PATH!"
+    Goto AddToPath_done
+  CheckPathLength_Done:
+  Push "$1;"
+  Push "$0;"
+  Call StrStr
+  Pop $2
+  StrCmp $2 "" "" AddToPath_done
+  Push "$1;"
+  Push "$0\;"
+  Call StrStr
+  Pop $2
+  StrCmp $2 "" "" AddToPath_done
+  GetFullPathName /SHORT $3 $0
+  Push "$1;"
+  Push "$3;"
+  Call StrStr
+  Pop $2
+  StrCmp $2 "" "" AddToPath_done
+  Push "$1;"
+  Push "$3\;"
+  C

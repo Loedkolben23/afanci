@@ -13,21 +13,21 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY
   4 .debug_aranges 00000028  00000000  00000000  000001d1  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_info   00000960  00000000  00000000  000001f9  2**0
+  5 .debug_info   0000094c  00000000  00000000  000001f9  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_abbrev 0000068a  00000000  00000000  00000b59  2**0
+  6 .debug_abbrev 0000068a  00000000  00000000  00000b45  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_line   000002ae  00000000  00000000  000011e3  2**0
+  7 .debug_line   000002ae  00000000  00000000  000011cf  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_frame  00000034  00000000  00000000  00001494  2**2
+  8 .debug_frame  00000034  00000000  00000000  00001480  2**2
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_str    00000208  00000000  00000000  000014c8  2**0
+  9 .debug_str    00000208  00000000  00000000  000014b4  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_ranges 00000018  00000000  00000000  000016d0  2**0
+ 10 .debug_ranges 00000018  00000000  00000000  000016bc  2**0
                   CONTENTS, READONLY, DEBUGGING
  11 .text         00000004  00000112  00000112  00000186  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
- 12 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  000016e8  2**2
+ 12 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  000016d4  2**2
                   CONTENTS, READONLY, DEBUGGING
  13 .text.initPWM 00000022  000000da  000000da  0000014e  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
@@ -111,15 +111,15 @@ void initPWM() {
   e0:	85 bd       	out	0x25, r24	; 37
 
 	// Configure Timer1 for Fast PWM on OC1A (Pin 9) and OC1B (Pin 10)
-	TCCR1A = (1 << WGM10) | (1 << WGM11) | (1 << COM1A1) | (1 << COM1B1); // Fast PWM mode
+	TCCR1A = (1 << WGM00) | (1 << WGM01) | (1 << COM0A1) | (1 << COM0B1); // Fast PWM mode
   e2:	90 93 80 00 	sts	0x0080, r25	; 0x800080 <__TEXT_REGION_LENGTH__+0x7f8080>
-	TCCR1B = (1 << CS10);  //clk
+	TCCR1B = (1 << CS00);  //clk
   e6:	80 93 81 00 	sts	0x0081, r24	; 0x800081 <__TEXT_REGION_LENGTH__+0x7f8081>
 
 	// Configure Timer2 for Fast PWM on OC2A (Pin 11) and OC2B (Pin 3)
-	TCCR2A = (1 << WGM20) | (1 << WGM21) | (1 << COM2A1) | (1 << COM2B1);
+	TCCR2A = (1 << WGM00) | (1 << WGM01) | (1 << COM0A1) | (1 << COM0B1);
   ea:	90 93 b0 00 	sts	0x00B0, r25	; 0x8000b0 <__TEXT_REGION_LENGTH__+0x7f80b0>
-	TCCR2B = (1 << CS20);  //clk
+	TCCR2B = (1 << CS00);  //clk
   ee:	80 93 b1 00 	sts	0x00B1, r24	; 0x8000b1 <__TEXT_REGION_LENGTH__+0x7f80b1>
 
 	// Set PWM pins as output
