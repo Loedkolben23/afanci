@@ -1,0 +1,22 @@
+Circuit: * C:\Users\paulb\Documents\Daten Paul\afanci\circuit\sim\simple-driver1.asc
+
+.OP point found by inspection.
+
+Date: Mon Sep  4 14:56:58 2023
+Total elapsed time: 1.042 seconds.
+
+tnom = 27
+temp = 27
+method = modified trap
+totiter = 349103
+traniter = 349103
+tranpoints = 151559
+accept = 121772
+rejected = 29787
+matrix size = 11
+fillins = 2
+solver = Normal
+Avg thread counts: 1.0/1.0/1.0/1.0
+Matrix Compiler1: 606 bytes object code size  0.4/0.2/[0.2]
+Matrix Compiler2: off  [0.1]/0.2/0.2
+

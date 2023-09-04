@@ -158,22 +158,22 @@ int main() {
 
 	while (1) {
 		// Adjust PWM duty cycles as needed
-		OCR0A = 0; // Duty cycle for OC0A (Pin 6)
-  9c:	17 bc       	out	0x27, r1	; 39
-		OCR0B = 255;  // Duty cycle for OC0B (Pin 5)
-  9e:	8f ef       	ldi	r24, 0xFF	; 255
+		OCR0A = 100; // Duty cycle for OC0A (Pin 6)
+  9c:	84 e6       	ldi	r24, 0x64	; 100
+  9e:	87 bd       	out	0x27, r24	; 39
+		OCR0B = 100;  // Duty cycle for OC0B (Pin 5)
   a0:	88 bd       	out	0x28, r24	; 40
-		OCR1A = 0; // Duty cycle for OC1A (Pin 9)
-  a2:	10 92 89 00 	sts	0x0089, r1	; 0x800089 <__TEXT_REGION_LENGTH__+0x7f8089>
-  a6:	10 92 88 00 	sts	0x0088, r1	; 0x800088 <__TEXT_REGION_LENGTH__+0x7f8088>
-		OCR1B = 255;  // Duty cycle for OC1B (Pin 10)
-  aa:	2f ef       	ldi	r18, 0xFF	; 255
-  ac:	30 e0       	ldi	r19, 0x00	; 0
+		OCR1A = 100; // Duty cycle for OC1A (Pin 9)
+  a2:	24 e6       	ldi	r18, 0x64	; 100
+  a4:	30 e0       	ldi	r19, 0x00	; 0
+  a6:	30 93 89 00 	sts	0x0089, r19	; 0x800089 <__TEXT_REGION_LENGTH__+0x7f8089>
+  aa:	20 93 88 00 	sts	0x0088, r18	; 0x800088 <__TEXT_REGION_LENGTH__+0x7f8088>
+		OCR1B = 100;  // Duty cycle for OC1B (Pin 10)
   ae:	30 93 8b 00 	sts	0x008B, r19	; 0x80008b <__TEXT_REGION_LENGTH__+0x7f808b>
   b2:	20 93 8a 00 	sts	0x008A, r18	; 0x80008a <__TEXT_REGION_LENGTH__+0x7f808a>
-		OCR2A = 0;  // Duty cycle for OC2A (Pin 11)
-  b6:	10 92 b3 00 	sts	0x00B3, r1	; 0x8000b3 <__TEXT_REGION_LENGTH__+0x7f80b3>
-		OCR2B = 255; // Duty cycle for OC2B (Pin 3)
+		OCR2A = 100;  // Duty cycle for OC2A (Pin 11)
+  b6:	80 93 b3 00 	sts	0x00B3, r24	; 0x8000b3 <__TEXT_REGION_LENGTH__+0x7f80b3>
+		OCR2B = 100; // Duty cycle for OC2B (Pin 3)
   ba:	80 93 b4 00 	sts	0x00B4, r24	; 0x8000b4 <__TEXT_REGION_LENGTH__+0x7f80b4>
 		//writes into data register
 		UDR0  = '8';
