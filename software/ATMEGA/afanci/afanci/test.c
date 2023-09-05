@@ -55,15 +55,15 @@ int main() {
 
 	while (1) {
 		// Adjust PWM duty cycles as needed
-		OCR0A = 100; // Duty cycle for OC0A (Pin 6)
-		OCR0B = 100;  // Duty cycle for OC0B (Pin 5)
-		OCR1A = 100; // Duty cycle for OC1A (Pin 9)
-		OCR1B = 100;  // Duty cycle for OC1B (Pin 10)
-		OCR2A = 100;  // Duty cycle for OC2A (Pin 11)
-		OCR2B = 100; // Duty cycle for OC2B (Pin 3)
+		OCR0A = 255; // Duty cycle for OC0A (Pin 6)
+		OCR0B = 255;  // Duty cycle for OC0B (Pin 5)
+		OCR1A = 255; // Duty cycle for OC1A (Pin 9)
+		OCR1B = 255;  // Duty cycle for OC1B (Pin 10)
+		OCR2A = 255;  // Duty cycle for OC2A (Pin 11)
+		OCR2B = 255; // Duty cycle for OC2B (Pin 3)
 		//writes into data register
 		UDR0  = '8';
-		_delay_ms(1000); // Delay for demonstration
+		_delay_ms(100); // Delay for demonstration
 	}
 }
 
