@@ -256,11 +256,11 @@ int main() {
   fe:	0e 94 cc 00 	call	0x198	; 0x198 <initPWM>
 		//OCR2A = 255;  // Duty cycle for OC2A (Pin 11)
 		//OCR2B = 255; // Duty cycle for OC2B (Pin 3)
-		uint16_t temperature = 46;
+		uint16_t temperature = 35;
 
 		// Calculate fan percentage using the fan curve
 		uint8_t fanPercentage = CalculateFanPercentage(temperature);
- 102:	8e e2       	ldi	r24, 0x2E	; 46
+ 102:	83 e2       	ldi	r24, 0x23	; 35
  104:	90 e0       	ldi	r25, 0x00	; 0
  106:	0e 94 45 00 	call	0x8a	; 0x8a <CalculateFanPercentage>
 

@@ -63,7 +63,7 @@ int main() {
 		//OCR1B = 255;  // Duty cycle for OC1B (Pin 10)
 		//OCR2A = 255;  // Duty cycle for OC2A (Pin 11)
 		//OCR2B = 255; // Duty cycle for OC2B (Pin 3)
-		uint16_t temperature = 46;
+		uint16_t temperature = 35;
 
 		// Calculate fan percentage using the fan curve
 		uint8_t fanPercentage = CalculateFanPercentage(temperature);
