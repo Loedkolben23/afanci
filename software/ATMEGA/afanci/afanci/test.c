@@ -38,6 +38,13 @@ void initPWM() {
 	DDRB = (1 << PB1) | (1 << PB2)| (1 << PB3); // OC1A (Pin 9) and OC1B (Pin 10) (PIN 11) 
 }
 
+void read_outisde_temp(ADC_vect){
+ADMUX |= (1 << REFS0) | (1 << ADLAR);
+ADCSRA |= (1 << ADEN) | (1 << ADSC) | (1 << ADATE) | (1 << ADIE) | (1 << ADPS2)| (1 << ADPS1)| (1 << ADPS0);
+DIDR0 |= (1 << CS22); 
+return ADCH;
+}
+
 uint8_t CalculateFanPercentage(uint16_t temperature) {
 	uint8_t closestPercentage = 0;
 	uint16_t closestTempDiff = UINT16_MAX;
@@ -56,14 +63,7 @@ uint8_t CalculateFanPercentage(uint16_t temperature) {
 int main() {
 	initPWM();
 	while (1) {
-		// Adjust PWM duty cycles as needed
-		//OCR0A = 255; // Duty cycle for OC0A (Pin 6)
-		//OCR0B = 255;  // Duty cycle for OC0B (Pin 5)
-		//OCR1A = 255; // Duty cycle for OC1A (Pin 9)
-		//OCR1B = 255;  // Duty cycle for OC1B (Pin 10)
-		//OCR2A = 255;  // Duty cycle for OC2A (Pin 11)
-		//OCR2B = 255; // Duty cycle for OC2B (Pin 3)
-		uint16_t temperature = 35;
+		uint16_t temperature = read_outisde_temp();
 
 		// Calculate fan percentage using the fan curve
 		uint8_t fanPercentage = CalculateFanPercentage(temperature);
