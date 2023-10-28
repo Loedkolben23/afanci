@@ -14,7 +14,7 @@ const uint8_t fanCurve[][2] = {
 	{30, 25},
 	{35, 50},
 	{40, 75},
-	{45, 100}
+	{45, 95}
 };
 
 #define FAN_CURVE_SIZE (sizeof(fanCurve) / sizeof(fanCurve[0]))
@@ -63,7 +63,7 @@ uint8_t CalculateFanPercentage(uint16_t temperature) {
 int main() {
 	initPWM();
 	while (1) {
-		uint16_t temperature = read_outisde_temp();
+		uint16_t temperature = 35;
 
 		// Calculate fan percentage using the fan curve
 		uint8_t fanPercentage = CalculateFanPercentage(temperature);
