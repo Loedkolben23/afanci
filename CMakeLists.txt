@@ -1,55 +1,15 @@
-cmake_minimum_required(VERSION 3.27.6)
+cmake_minimum_required(VERSION 3.16)
 
-#sets project name
-project(afanci)
+project(helloworld VERSION 1.0.0 LANGUAGES CXX)
 
-if (WIN32)
-    project(${PROJECT_NAME} LANGUAGES CXX)
-elseif(UNIX)
-    project(${PROJECT_NAME})
-endif()
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-set(CMAKE_CONFIGURATION_TYPES "Release;RelWithDebInfo" CACHE STRING "" FORCE)
+find_package(Qt6 REQUIRED COMPONENTS Core)
+qt_standard_project_setup()
 
-#INCLUSION OF Qt
-set(CMAKE_INCLUDE_CURRENT_DIR ON)
-set(CMAKE_AUTOMOC ON)
-set(CMAKE_AUTOUIC ON)
-set(CMAKE_PREFIX_PATH $ENV{QTDIR})
-find_package(Qt6Core REQUIRED)
-find_package(Qt6Widgets REQUIRED)
-
-#INCLUSION OF Project Files
-set(FORMS_DIR "${CMAKE_SOURCE_DIR}/forms")
-set(INCLUDE_DIR "${CMAKE_SOURCE_DIR}/include")
-set(SOURCE_DIR "${CMAKE_SOURCE_DIR}/src")
-
-include_directories(${FORMS_DIR})
-include_directories(${INCLUDE_DIR})
-include_directories(${SOURCE_DIR})
-
-file(GLOB_RECURSE SOURCES
-    "${FORMS_DIR}/*.ui"
-    "${FORMS_DIR}/*.qrc"
-    "${INCLUDE_DIR}/*.h"
-    "${SOURCE_DIR}/*.cpp"
+qt_add_executable(helloworld
+    main.cpp
 )
 
-#SETUP EXECTUABLE
-#Add the forms directory to the AUTOUIC search paths
-set(CMAKE_AUTOUIC_SEARCH_PATHS ${CMAKE_AUTOUIC_SEARCH_PATHS} ${FORMS_DIR})
-
-#Add the executable
-if (WIN32) 
-    add_executable(${PROJECT_NAME} WIN32 ${SOURCES})
-elseif(UNIX)
-    add_executable(${PROJECT_NAME} ${SOURCES})
-endif()
-
-#Add the target includes for ${PROJECT_NAME} 
-target_include_directories(${PROJECT_NAME} PRIVATE ${FORMS_DIR})
-target_include_directories(${PROJECT_NAME} PRIVATE ${INCLUDE_DIR})
-target_include_directories(${PROJECT_NAME} PRIVATE ${SOURCE_DIR})
-
-#LINKING LIBRARIES
-target_link_libraries(${PROJECT_NAME} Qt6::Widgets)
+target_link_libraries(helloworld PRIVATE Qt6::Core)
